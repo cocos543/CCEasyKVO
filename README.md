@@ -1,5 +1,5 @@
 # 文档更新说明
-* 最后更新 2019年07月03日
+* 最后更新 2019年07月05日
 * 首次更新 2019年07月03日
 
 # 前言
@@ -69,10 +69,13 @@ typedef void (^CC_EasyBlock)(id object, NSDictionary<NSKeyValueChangeKey, id> *c
 ### 遇到的第二个问题
 　　如何避免用户传入的block内存被释放? 简单说就是如何管理block内存? oc的block一共有三种, 分别是全局块`NSGlobalBlock`, 堆块`NSMallocBlock`, 栈块`NSStackBlock`. 这里顺便简单介绍一下他们的区别:
 
-
 	(1) block类型区别
-	引用了方法内的临时变量, 创建的时候就是NSStackBlock, 赋值给strong类型的变量之后就是NSMallocBlock, 这里也称之为copy操作;
-	没有引用方法内的临时变量, 创建的就是NSGlobalBlock.
+	没有引用外部任何变量(static变量除外), 创建的就是NSGlobalBlock;
+	除了NSGlobalBlock, 其他创建的时候就是NSStackBlock, 赋值给strong类型的变量之后就是NSMallocBlock, 这里也称之为copy操作;
+	在符合NSStatckBlock的条件下, 可以通过两种方法获取NSStatckBlock:
+	1. 在调用方法时创建匿名block, 在方法内部得到的block变量是NSStaticBlock
+	2. 创建的block赋值给__weak变量.
+
 	(2) 内存管理
 	NSStackBlock类型的块, 会随栈内存释放而释放, 使用的时候需要先用strong变量存储起来, 否则将crash;
 	NSGlobalBlock类型的块, 不会被释放; NSMallocBlock类型和其他引用类型一样, 没人引用就会被释放;
