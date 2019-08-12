@@ -60,7 +60,7 @@ typedef void (^CC_EasyBlock)(id object, NSDictionary<NSKeyValueChangeKey, id> *c
 @end
 ```
 
-上面就是我们的头文件部分, 比较简单, 主要就是系统了一个便捷KVO的api, 其中`CC_EasyBlock`就是用户需要传入的block.
+上面就是我们的头文件部分, 比较简单, 主要就是提供了一套便捷KVO的api, 其中`CC_EasyBlock`就是用户需要传入的block.
 
 ### 遇到的第一个问题
 　　接下来要解决一个重要的问题. 我们能否直接使用当前被分类的对象作为观者者直接观察`observe`呢? 答案是否定的, 这个你可以自己尝试一下. 原因就是当用户在被分类的类里也实现了系统KVO接受广播的方法`observeValueForKeyPath...`时, 分类代码里就无法再收到系统的广播了.
@@ -73,7 +73,7 @@ typedef void (^CC_EasyBlock)(id object, NSDictionary<NSKeyValueChangeKey, id> *c
 	没有引用外部任何变量(static变量除外), 创建的就是NSGlobalBlock;
 	除了NSGlobalBlock, 其他创建的时候就是NSStackBlock, 赋值给strong类型的变量之后就是NSMallocBlock, 这里也称之为copy操作;
 	在符合NSStatckBlock的条件下, 可以通过两种方法获取NSStatckBlock:
-	1. 在调用方法时创建匿名block, 在方法内部得到的block变量是NSStaticBlock
+	1. 在调用方法时创建匿名block, 在方法内部得到的block变量是NSStatckBlock
 	2. 创建的block赋值给__weak变量.
 
 	(2) 内存管理
