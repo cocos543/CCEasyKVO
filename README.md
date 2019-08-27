@@ -84,7 +84,7 @@ typedef void (^CC_EasyBlock)(id object, NSDictionary<NSKeyValueChangeKey, id> *c
 用户传入的block可能是三种类型之一, 为了避免内存出问题, 在转成void *的时候就需要做一点额外的处理, 才能传给系统的KVO:
 
 ```objectivec
-// 用户传入的block可能是NSStackBlock, 所以在转为泛型指针的时候必须将所有权转移给CoreFoundatin层, 这样一来block类型会转为NSMallocBlock并被持有
+// 用户传入的block可能是NSStackBlock, 所以在转为泛型指针的时候必须转为NSMallocBlock并被持有
 // 对block进行内存管理, 把block copy到堆中, 然后用block在堆中的地址作为key, 存入哈希表中
 CC_EasyBlock b = [block copy];
 
