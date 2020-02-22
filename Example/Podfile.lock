@@ -1,0 +1,16 @@
+PODS:
+  - CCEasyKVO (0.1.0)
+
+DEPENDENCIES:
+  - CCEasyKVO (from `../`)
+
+EXTERNAL SOURCES:
+  CCEasyKVO:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CCEasyKVO: fc445358b3c8e40fa6ea6f5a21a8849c8d0344e9
+
+PODFILE CHECKSUM: 4e039fafa46a44d975a6bc1e58bf2fc726dd8ae1
+
+COCOAPODS: 1.9.0.beta.2
