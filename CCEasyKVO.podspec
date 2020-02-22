@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'CCEasyKVO'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of CCEasyKVO.'
+  s.summary          = '为系统KVO添加Block支持, 并且支持自动移除观察者'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+为系统KVO添加Block支持, 支持自动移除观察者, 提供了便捷的方法供用户使用, 这样用系统KVO功能时就不用再关心观察者释放问题啦~
                        DESC
 
   s.homepage         = 'https://github.com/cocos543/CCEasyKVO'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Cocos' => '543314602@qq.com' }
+  s.author           = { 'Cocos543' => '543314602@qq.com' }
   s.source           = { :git => 'https://github.com/cocos543/CCEasyKVO.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

@@ -15,6 +15,13 @@ NSObject *obj = [[NSObject alloc] init];
 
 ```
 
+# 安装方法
+通过 CocoaPods
+
+```
+pod 'CCEasyKVO'
+```
+
 # 在KVO中传送block的方法
 　　要添加block功能到系统的KVO中, 首先要做的事情是传这个block指针能传入KVO中, 在消息广播的时候又能把这个block带回来.先看一下系统的API:
 　　
